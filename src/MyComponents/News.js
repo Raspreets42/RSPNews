@@ -5,11 +5,10 @@ export default function News() {
     const [data, setdata] = useState([])
 
     const getLatestNews = async () => {
-        const response = await fetch(`https://newsapi.org/v2/top-headlines?country=in&apiKey=7831f4e8eb0c43c9be6c54da15445650`);
+        const response = await fetch('https://newsapi.org/v2/top-headlines?country=in&category=technology&apiKey=7831f4e8eb0c43c9be6c54da15445650');
         const actualData = await response.json();
         console.log(actualData.articles);
         setdata(actualData.articles);
-
     }
     useEffect(() => {
         getLatestNews();
